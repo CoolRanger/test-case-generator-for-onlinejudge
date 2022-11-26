@@ -1,21 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-string gen_randomstr(const int len) {
-    static const char alphanum[] =
-        "0123456789"
-        "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-        "abcdefghijklmnopqrstuvwxyz";
-    string tmp_s;
-    tmp_s.reserve(len);
-
-    for (int i = 0; i < len; ++i) {
-        tmp_s += alphanum[rand() % (sizeof(alphanum) - 1)];
-    }
-    
-    return tmp_s;
-}
-
 signed main(){
     srand(time(NULL));
     for(int create = 1; create <= 10; create ++){
@@ -39,7 +24,9 @@ signed main(){
         ifs3.open(str, ios_base::out);
         if (!ifs3.is_open()) cout << "Failed to open " << '\n'; 
         else {
-            //ifs3 輸出
+            //generate .in file
+            //ifs3 input
+            //modify below
             bool yes = rand()%2;
             int len = rand()%100;
             string str = gen_randomstr(len);
@@ -49,7 +36,7 @@ signed main(){
             }
             }
             ifs3 << str;
-
+            //do not modify below
         }
         ifs3.close();
         ifstream ifs;
@@ -60,7 +47,9 @@ signed main(){
             cout << "Failed to open " << '\n';
         }
         else{
-            //ifs 輸入 ifs2 輸出
+            //generate .out file
+            //ifs input ifs2 output
+            //modify below
             string s; ifs >> s;
             bool det = 1;
             for(int i = 0; i < s.size()/2; i++){
@@ -70,6 +59,7 @@ signed main(){
                 }
             }
             det?ifs2<<1:ifs2<<0;
+            //do not modify below
         }
     }
 }
